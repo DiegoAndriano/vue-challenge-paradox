@@ -10,12 +10,12 @@ module.exports = {
       },
       colors: {
         app: {
-          text: "#1e293b",
-          main: "#526e94",
-          accent: "#f4f2d9",
-          lighttext: "#9ca3af",
+          text: "#374151",
+          textlighter: "#9ca3af",
+          main: "#6366f1",
+          accent: "#ef4444",
           mute: "#e5e7eb",
-          reverse: "#fefefe",
+          background: "#f3f4f6",
         },
       },
     },
