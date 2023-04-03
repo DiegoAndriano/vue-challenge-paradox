@@ -3,6 +3,8 @@ import WidgetComponent from './WidgetComponent.vue'
 import { useMoviesStore } from '@/stores/movies'
 import IconMovie from '@/components/icons/IconMovie.vue'
 import IconBankNote from '@/components/icons/IconBankNote.vue'
+import IconArrowUp from '@/components/icons/IconArrowUp.vue'
+import IconArrowDown from '@/components/icons/IconArrowDown.vue'
 
 const moviesStore = useMoviesStore()
 </script>
@@ -26,7 +28,12 @@ const moviesStore = useMoviesStore()
 
         </IconBankNote>
       </template>
-      <template #title> Mayor Recaudación (M U$D)</template>
+      <template #title>
+        <div class='flex space-x-2'>
+          Mayor Recaudación (M U$D)
+          <IconArrowUp class='text-green-400'></IconArrowUp>
+        </div>
+      </template>
       <template #show>
         <p>{{ moviesStore.biggestGrossNumber?.titulo }}</p>
         <p>$ {{ moviesStore.biggestGrossNumber?.recaudacion }}</p>
@@ -38,7 +45,12 @@ const moviesStore = useMoviesStore()
 
         </IconBankNote>
       </template>
-      <template #title> Menor Recaudación (M U$D)</template>
+      <template #title>
+        <div class='flex space-x-2'>
+          Menor Recaudación (M U$D)
+          <IconArrowDown class='text-red-400'></IconArrowDown>
+        </div>
+      </template>
       <template #show>
         <p>{{ moviesStore.smallestGrossNumber?.titulo }}</p>
         <p>$ {{ moviesStore.smallestGrossNumber?.recaudacion }}</p>
