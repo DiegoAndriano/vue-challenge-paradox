@@ -12,6 +12,13 @@ npm run tailwind
 npm run dev
 ```
 
+### Compile and Hot-Reload for Building
+
+```sh
+npm run tailwind
+npm run build
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
