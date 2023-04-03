@@ -6,25 +6,26 @@ import type { Ref } from 'vue'
 import AutocompleteComponent from './AutocompleteComponent.vue'
 import IconCircleX from './icons/IconCircleX.vue'
 
-const searchTitle: Ref<string> = ref('')
 const searchMinGross: Ref<number> = ref(0)
 const searchMaxGross: Ref<number> = ref(0)
 const searchDate: Ref<number> = ref(0)
 const selectedGenre: Ref<string> = ref('');
 const selectedDirector: Ref<string> = ref('');
+const selectedTitle: Ref<string> = ref('');
 const autocompleteDirector: Ref = ref('')
 
 const moviesStore = useMoviesStore()
 
 const genres = computed(() => moviesStore.genres)
 const directors = computed(() => moviesStore.directors)
+const titles = computed(() => moviesStore.titles)
 
 function closeModal() {
   moviesStore.toggleSearchModal()
 }
 
 function closeModalAndSearch() {
-  moviesStore.updateAdvancedSearchTitle(searchTitle.value.toLowerCase())
+  moviesStore.updateAdvancedSearchTitle(selectedTitle.value.toLowerCase())
   moviesStore.updateAdvancedSearchGenre(selectedGenre.value.toLowerCase())
   moviesStore.updateAdvancedSearchDirector(selectedDirector.value.toLowerCase())
   moviesStore.updateAdvancedSearchMinGross(searchMinGross.value)
@@ -75,14 +76,15 @@ function eraseDirector(){
               </DialogTitle>
 
               <div class='mt-2 flex flex-col justify-around flex-grow'>
-                <label class="text-sm text-gray-500" for='Titulo'>Título</label>
-                <input
-                  id='Titulo'
-                  type='text'
-                  class='rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150'
-                  placeholder='Buscar Título...'
-                  v-model='searchTitle'
-                />
+                <label class="text-sm text-gray-500">Seleccionar Título</label>
+                <div class='flex flex space-x-3 items-center'>
+                  <AutocompleteComponent
+                    :selected='selectedTitle'
+                    v-model='selectedTitle' :list='titles' class='z-20'>
+
+                  </AutocompleteComponent>
+                  <IconCircleX class='text-red-500 cursor-pointer' @click="selectedGenre = ''"></IconCircleX>
+                </div>
                 <label class="text-sm text-gray-500" for='Mínima'>Mínima recaudación</label>
                 <input
                   id='Mínima'
