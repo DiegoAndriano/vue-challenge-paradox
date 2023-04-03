@@ -50,7 +50,6 @@ defineExpose({ erase })
       >
         <ComboboxInput
           class='w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
-          :displayValue='(string) => string'
           @change='query = $event.target.value'
         />
         <ComboboxButton
@@ -76,11 +75,11 @@ defineExpose({ erase })
           </div>
 
           <ComboboxOption
-            v-for='string in filteredList'
+            v-for='listString in filteredList'
             as='template'
-            :key='string'
-            :value='string'
-            @click="$emit('update:modelValue', string)"
+            :key='listString'
+            :value='listString'
+            @click="$emit('update:modelValue', listString)"
             v-slot='{ selected, active }'
           >
             <li
@@ -94,7 +93,7 @@ defineExpose({ erase })
                   class='block truncate'
                   :class="{ 'font-medium': selected, 'font-normal': !selected }"
                 >
-                  {{ string }}
+                  {{ listString }}
                 </span>
               <span
                 v-if='selected'
