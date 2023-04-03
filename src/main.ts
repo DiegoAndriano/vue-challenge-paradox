@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 
-import "../dist/output.css";
+import '../dist/output.css'
 
 const app = createApp(App)
 
