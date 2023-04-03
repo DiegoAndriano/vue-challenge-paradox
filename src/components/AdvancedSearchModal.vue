@@ -20,6 +20,10 @@ const genres = computed(() => moviesStore.genres)
 const directors = computed(() => moviesStore.directors)
 
 function closeModal() {
+  moviesStore.toggleSearchModal()
+}
+
+function closeModalAndSearch() {
   moviesStore.updateAdvancedSearchTitle(searchTitle.value.toLowerCase())
   moviesStore.updateAdvancedSearchGenre(selectedGenre.value.toLowerCase())
   moviesStore.updateAdvancedSearchDirector(selectedDirector.value.toLowerCase())
@@ -130,7 +134,7 @@ function eraseDirector(){
                 <button
                   type='button'
                   class='inline-flex justify-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-900 hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2'
-                  @click='closeModal'
+                  @click='closeModalAndSearch'
                 >
                   Buscar
                 </button>
