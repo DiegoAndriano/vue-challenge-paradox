@@ -52,7 +52,8 @@ export const useMoviesStore = defineStore('movies', () => {
     if (generalSearch.value) {
       return useFilterByGeneral(movies.value, generalSearch.value)
     } else {
-      return useFilterByDate(useFilterByMaxGross(
+      return useFilterByDate(
+        useFilterByMaxGross(
           useFilterByMinGross(
             useFilterByDirector(
               useFilterByGenre(
@@ -119,6 +120,9 @@ export const useMoviesStore = defineStore('movies', () => {
     advancedSearchGenre.value = ''
     filteredMovies.value = []
   }
+  const eraseGeneral = function() {
+    generalSearch.value = ""
+  }
 
   return {
     setup,
@@ -141,6 +145,7 @@ export const useMoviesStore = defineStore('movies', () => {
     updateAdvancedSearchDate,
     isAdvancedSearching,
     eraseAdvanced,
-    titles,
+    eraseGeneral,
+    titles
   }
 })

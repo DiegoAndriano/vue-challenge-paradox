@@ -9,6 +9,7 @@ const moviesStore = useMoviesStore()
 
 function openModal() {
   search.value = ""
+  moviesStore.eraseGeneral()
   moviesStore.toggleSearchModal()
 }
 
