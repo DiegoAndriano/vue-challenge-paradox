@@ -12,7 +12,7 @@ npm run tailwind
 npm run dev
 ```
 
-### Compile and Hot-Reload for Building
+### Compile for Building
 
 ```sh
 npm run tailwind
