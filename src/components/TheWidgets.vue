@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import WidgetComponent from './WidgetComponent.vue'
 import { useMoviesStore } from '@/stores/movies'
 import IconMovie from '@/components/icons/IconMovie.vue'
@@ -10,12 +10,12 @@ const moviesStore = useMoviesStore()
 </script>
 
 <template>
-  <div class='flex flex-col space-y-6 py-6 px-6 lg:flex-row lg:space-y-0 lg:space-x-6 lg:justify-around'>
+  <div
+    class="flex flex-col space-y-6 py-6 px-6 lg:flex-row lg:space-y-0 lg:space-x-6 lg:justify-around"
+  >
     <WidgetComponent>
       <template #icon>
-        <IconMovie class='text-app-mainmute'>
-
-        </IconMovie>
+        <IconMovie class="text-app-mainmute"> </IconMovie>
       </template>
       <template #title> Número total de películas</template>
       <template #show>
@@ -24,14 +24,12 @@ const moviesStore = useMoviesStore()
     </WidgetComponent>
     <WidgetComponent>
       <template #icon>
-        <IconBankNote class='text-app-mainmute'>
-
-        </IconBankNote>
+        <IconBankNote class="text-app-mainmute"> </IconBankNote>
       </template>
       <template #title>
-        <div class='flex space-x-2'>
+        <div class="flex space-x-2">
           Mayor Recaudación (M U$D)
-          <IconArrowUp class='text-green-400'></IconArrowUp>
+          <IconArrowUp class="text-green-400"></IconArrowUp>
         </div>
       </template>
       <template #show>
@@ -41,14 +39,12 @@ const moviesStore = useMoviesStore()
     </WidgetComponent>
     <WidgetComponent>
       <template #icon>
-        <IconBankNote class='text-app-mainmute'>
-
-        </IconBankNote>
+        <IconBankNote class="text-app-mainmute"> </IconBankNote>
       </template>
       <template #title>
-        <div class='flex space-x-2'>
+        <div class="flex space-x-2">
           Menor Recaudación (M U$D)
-          <IconArrowDown class='text-red-400'></IconArrowDown>
+          <IconArrowDown class="text-red-400"></IconArrowDown>
         </div>
       </template>
       <template #show>

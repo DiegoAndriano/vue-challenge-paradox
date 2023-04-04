@@ -5,7 +5,7 @@ export function useFilterByMaxGross(movie: Movie[], filter: number) {
     return movie
   }
 
-  const filtered: Array<Movie> = movie.filter(function(item: Movie) {
+  const filtered: Array<Movie> = movie.filter(function (item: Movie) {
     if (item.recaudacion <= filter) {
       return item
     }

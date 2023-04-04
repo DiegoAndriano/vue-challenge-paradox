@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { useMoviesStore } from '@/stores/movies'
 import { ref, computed } from 'vue'
@@ -50,108 +50,119 @@ function eraseTitle() {
   autocompleteTitle.value.erase()
   selectedTitle.value = ''
 }
-
 </script>
 
 <template>
-  <teleport to='body'>
-    <TransitionRoot appear :show='moviesStore.modals.search' as='template'>
-      <Dialog as='div' @close='closeModal' class='relative z-10'>
+  <teleport to="body">
+    <TransitionRoot appear :show="moviesStore.modals.search" as="template">
+      <Dialog as="div" @close="closeModal" class="relative z-10">
         <TransitionChild
-          as='template'
-          enter='duration-300 ease-out'
-          enter-from='opacity-0'
-          enter-to='opacity-100'
-          leave='duration-200 ease-in'
-          leave-from='opacity-100'
-          leave-to='opacity-0'
+          as="template"
+          enter="duration-300 ease-out"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="duration-200 ease-in"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
         >
-          <div class='fixed inset-0 bg-black bg-opacity-25' />
+          <div class="fixed inset-0 bg-black bg-opacity-25" />
         </TransitionChild>
 
-        <div class='fixed inset-0 overflow-y-auto'>
-          <div class='flex min-h-full items-center justify-center p-4 text-center'>
+        <div class="fixed inset-0 overflow-y-auto">
+          <div class="flex min-h-full items-center justify-center p-4 text-center">
             <TransitionChild
-              as='template'
-              enter='duration-300 ease-out'
-              enter-from='opacity-0 scale-95'
-              enter-to='opacity-100 scale-100'
-              leave='duration-200 ease-in'
-              leave-from='opacity-100 scale-100'
-              leave-to='opacity-0 scale-95'
+              as="template"
+              enter="duration-300 ease-out"
+              enter-from="opacity-0 scale-95"
+              enter-to="opacity-100 scale-100"
+              leave="duration-200 ease-in"
+              leave-from="opacity-100 scale-100"
+              leave-to="opacity-0 scale-95"
             >
               <DialogPanel
-                class='h-full w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all  min-h-[600px] flex flex-col'
+                class="h-full w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all min-h-[600px] flex flex-col"
               >
-                <DialogTitle as='h3' class='text-lg font-medium leading-6 text-gray-900'>
+                <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
                   Filtros avanzados
                 </DialogTitle>
 
-                <div class='mt-2 flex flex-col justify-around flex-grow'>
-                  <label class='text-sm text-gray-500'>Seleccionar Título</label>
-                  <div class='flex flex space-x-3 items-center'>
+                <div class="mt-2 flex flex-col justify-around flex-grow">
+                  <label class="text-sm text-gray-500">Seleccionar Título</label>
+                  <div class="flex flex space-x-3 items-center">
                     <AutocompleteComponent
-                      :selected='selectedTitle'
-                      ref='autocompleteTitle'
-                      v-model='selectedTitle' :list='titles' class='z-20'>
-
-                    </AutocompleteComponent>
-                    <IconCircleX class='text-red-500 cursor-pointer' @click="eraseTitle"></IconCircleX>
-                  </div>
-                  <label class='text-sm text-gray-500' for='Mínima'>Mínima recaudación</label>
-                  <input
-                    id='Mínima'
-                    type='number'
-                    class='rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150'
-                    placeholder='Mínima Recaudación...'
-                    v-model='searchMinGross'
-                  />
-                  <label class='text-sm text-gray-500' for='Mínima'>Máxima recaudación</label>
-                  <input
-                    id='Máxima'
-                    type='number'
-                    class='rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150'
-                    placeholder='Máxima Recaudación...'
-                    v-model='searchMaxGross'
-                  />
-                  <label class='text-sm text-gray-500' for='Date'>Fecha</label>
-                  <input
-                    id='Date'
-                    type='number'
-                    class='rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150'
-                    placeholder='Fecha...'
-                    v-model='searchDate'
-                  />
-                  <label class='text-sm text-gray-500'>Seleccionar Género</label>
-                  <div class='flex flex space-x-3 items-center'>
-                    <AutocompleteComponent
-                      :selected='selectedGenre'
-                      ref='autocompleteGenre'
-                      v-model='selectedGenre' :list='genres' class='z-20'>
-
-                    </AutocompleteComponent>
-                    <IconCircleX class='text-red-500 cursor-pointer' @click="eraseGenre"></IconCircleX>
-                  </div>
-
-
-                  <label class='text-sm text-gray-500'>Seleccionar Director</label>
-                  <div class='flex flex space-x-3 items-center w-full'>
-                    <AutocompleteComponent v-model='selectedDirector' :list='directors' class='z-10'
-                                           ref='autocompleteDirector'>
-
+                      :selected="selectedTitle"
+                      ref="autocompleteTitle"
+                      v-model="selectedTitle"
+                      :list="titles"
+                      class="z-20"
+                    >
                     </AutocompleteComponent>
                     <IconCircleX
-                      class='text-red-500 cursor-pointer'
-                      @click='eraseDirector'></IconCircleX>
+                      class="text-red-500 cursor-pointer"
+                      @click="eraseTitle"
+                    ></IconCircleX>
+                  </div>
+                  <label class="text-sm text-gray-500" for="Mínima">Mínima recaudación</label>
+                  <input
+                    id="Mínima"
+                    type="number"
+                    class="rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150"
+                    placeholder="Mínima Recaudación..."
+                    v-model="searchMinGross"
+                  />
+                  <label class="text-sm text-gray-500" for="Mínima">Máxima recaudación</label>
+                  <input
+                    id="Máxima"
+                    type="number"
+                    class="rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150"
+                    placeholder="Máxima Recaudación..."
+                    v-model="searchMaxGross"
+                  />
+                  <label class="text-sm text-gray-500" for="Date">Fecha</label>
+                  <input
+                    id="Date"
+                    type="number"
+                    class="rounded bg-app-lighttext border border-app-lighttext text-app-text bg-white px-3 py-1 w-full focus:px-5 transition ease-in-out duration-150"
+                    placeholder="Fecha..."
+                    v-model="searchDate"
+                  />
+                  <label class="text-sm text-gray-500">Seleccionar Género</label>
+                  <div class="flex flex space-x-3 items-center">
+                    <AutocompleteComponent
+                      :selected="selectedGenre"
+                      ref="autocompleteGenre"
+                      v-model="selectedGenre"
+                      :list="genres"
+                      class="z-20"
+                    >
+                    </AutocompleteComponent>
+                    <IconCircleX
+                      class="text-red-500 cursor-pointer"
+                      @click="eraseGenre"
+                    ></IconCircleX>
+                  </div>
 
+                  <label class="text-sm text-gray-500">Seleccionar Director</label>
+                  <div class="flex flex space-x-3 items-center w-full">
+                    <AutocompleteComponent
+                      v-model="selectedDirector"
+                      :list="directors"
+                      class="z-10"
+                      ref="autocompleteDirector"
+                    >
+                    </AutocompleteComponent>
+                    <IconCircleX
+                      class="text-red-500 cursor-pointer"
+                      @click="eraseDirector"
+                    ></IconCircleX>
                   </div>
                 </div>
 
-                <div class='mt-4'>
+                <div class="mt-4">
                   <button
-                    type='button'
-                    class='inline-flex justify-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-900 hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2'
-                    @click='closeModalAndSearch'
+                    type="button"
+                    class="inline-flex justify-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-900 hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+                    @click="closeModalAndSearch"
                   >
                     Buscar
                   </button>

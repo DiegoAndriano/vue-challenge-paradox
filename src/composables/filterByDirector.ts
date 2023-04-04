@@ -6,7 +6,7 @@ export function useFilterByDirector(movie: Movie[], filter: string) {
     return movie
   }
 
-  const filtered: Array<Movie> = movie.filter(function(item: Movie) {
+  const filtered: Array<Movie> = movie.filter(function (item: Movie) {
     if (
       useRemoveSpecialCharacters(item.director.toLowerCase()).includes(
         useRemoveSpecialCharacters(filter)

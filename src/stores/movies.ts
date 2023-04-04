@@ -25,6 +25,11 @@ export const useMoviesStore = defineStore('movies', () => {
   const advancedSearchMaxGross: Ref<number> = ref(0)
   const advancedSearchDate: Ref<number> = ref(0)
 
+  const sortedBy: Ref<any> = ref({
+    sort: null,
+    isAsc: false,
+  } )
+
   const modals: Ref<any> = ref({
     search: false
   })
@@ -124,6 +129,32 @@ export const useMoviesStore = defineStore('movies', () => {
     generalSearch.value = ""
   }
 
+  const sortByDate = function (isAsc: boolean) {
+    movies.value.sort(function(item: Movie, another: Movie){
+      sortedBy.value.sort = "date"
+      if (isAsc) {
+        sortedBy.value.isAsc = true
+        return another.año - item.año;
+      } else {
+        sortedBy.value.isAsc = false
+        return item.año - another.año;
+      }
+    })
+  }
+
+  const sortByGross = function (isAsc: boolean) {
+    movies.value.sort(function(item: Movie, another: Movie){
+      sortedBy.value.sort = "gross"
+      if (isAsc) {
+        sortedBy.value.isAsc = true
+        return another.recaudacion - item.recaudacion;
+      } else {
+        sortedBy.value.isAsc = false
+        return item.recaudacion - another.recaudacion;
+      }
+    })
+  }
+
   return {
     setup,
     movies,
@@ -146,6 +177,9 @@ export const useMoviesStore = defineStore('movies', () => {
     isAdvancedSearching,
     eraseAdvanced,
     eraseGeneral,
-    titles
+    titles,
+    sortByDate,
+    sortByGross,
+    sortedBy
   }
 })

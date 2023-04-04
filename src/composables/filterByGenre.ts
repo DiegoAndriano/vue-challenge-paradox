@@ -6,7 +6,7 @@ export function useFilterByGenre(movie: Movie[], filter: string) {
     return movie
   }
 
-  const filtered: Array<Movie> = movie.filter(function(item: Movie) {
+  const filtered: Array<Movie> = movie.filter(function (item: Movie) {
     if (
       useRemoveSpecialCharacters(item.genero.toLowerCase()).includes(
         useRemoveSpecialCharacters(filter)
