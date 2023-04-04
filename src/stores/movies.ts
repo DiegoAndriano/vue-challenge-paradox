@@ -146,6 +146,12 @@ export const useMoviesStore = defineStore('movies', () => {
     isAdvancedSearching,
     eraseAdvanced,
     eraseGeneral,
-    titles
+    titles,
+    advancedSearchTitle,
+    advancedSearchMinGross,
+    advancedSearchMaxGross,
+    advancedSearchDate,
+    advancedSearchGenre,
+    advancedSearchDirector,
   }
 })
