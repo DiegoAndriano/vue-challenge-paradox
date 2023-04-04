@@ -13,6 +13,8 @@ const selectedGenre: Ref<string> = ref('')
 const selectedDirector: Ref<string> = ref('')
 const selectedTitle: Ref<string> = ref('')
 const autocompleteDirector: Ref = ref('')
+const autocompleteGenre: Ref = ref('')
+const autocompleteTitle: Ref = ref('')
 
 const moviesStore = useMoviesStore()
 
@@ -37,6 +39,16 @@ function closeModalAndSearch() {
 function eraseDirector() {
   autocompleteDirector.value.erase()
   selectedDirector.value = ''
+}
+
+function eraseGenre() {
+  autocompleteGenre.value.erase()
+  selectedGenre.value = ''
+}
+
+function eraseTitle() {
+  autocompleteTitle.value.erase()
+  selectedTitle.value = ''
 }
 
 </script>
@@ -80,10 +92,11 @@ function eraseDirector() {
                   <div class='flex flex space-x-3 items-center'>
                     <AutocompleteComponent
                       :selected='selectedTitle'
+                      ref='autocompleteTitle'
                       v-model='selectedTitle' :list='titles' class='z-20'>
 
                     </AutocompleteComponent>
-                    <IconCircleX class='text-red-500 cursor-pointer' @click="selectedGenre = ''"></IconCircleX>
+                    <IconCircleX class='text-red-500 cursor-pointer' @click="eraseTitle"></IconCircleX>
                   </div>
                   <label class='text-sm text-gray-500' for='Mínima'>Mínima recaudación</label>
                   <input
@@ -113,10 +126,11 @@ function eraseDirector() {
                   <div class='flex flex space-x-3 items-center'>
                     <AutocompleteComponent
                       :selected='selectedGenre'
+                      ref='autocompleteGenre'
                       v-model='selectedGenre' :list='genres' class='z-20'>
 
                     </AutocompleteComponent>
-                    <IconCircleX class='text-red-500 cursor-pointer' @click="selectedGenre = ''"></IconCircleX>
+                    <IconCircleX class='text-red-500 cursor-pointer' @click="eraseGenre"></IconCircleX>
                   </div>
 
 
