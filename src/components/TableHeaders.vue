@@ -7,10 +7,10 @@ const moviesStore = useMoviesStore()
 </script>
 <template>
   <tr class='bg-app-backgrounddarker'>
-    <th class='text-app-text text-left px-4'>Título</th>
-    <th class='text-app-text text-left px-4'>Director</th>
-    <th class='text-app-text text-left px-4'>Género</th>
-    <th class='text-app-text text-left px-4'>
+    <th class='text-app-text text-left px-4 overflow-hidden'>Título</th>
+    <th class='text-app-text text-left px-4 overflow-hidden'>Director</th>
+    <th class='text-app-text text-left px-4 overflow-hidden'>Género</th>
+    <th class='text-app-text text-left px-4 overflow-hidden'>
       <span class='flex'>
         Recaudación (M U$D)
       <IconArrowDown
@@ -25,7 +25,7 @@ const moviesStore = useMoviesStore()
       ></IconArrowUp>
         </span>
     </th>
-    <th class='text-app-text text-left px-4 py-3'>
+    <th class='text-app-text text-left px-4 py-3 overflow-hidden'>
       <span class='flex'>
       Año
       <IconArrowDown

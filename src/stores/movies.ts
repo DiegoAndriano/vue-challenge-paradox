@@ -16,6 +16,7 @@ export const useMoviesStore = defineStore('movies', () => {
   const genres: Ref<Array<string>> = ref([])
   const directors: Ref<Array<string>> = ref([])
   const titles: Ref<Array<string>> = ref([])
+  const years: Ref<Array<number>> = ref([])
 
   const generalSearch: Ref<string> = ref('')
   const advancedSearchTitle: Ref<string> = ref('')
@@ -48,6 +49,9 @@ export const useMoviesStore = defineStore('movies', () => {
 
     titles.value = movies.value.map((movie: Movie) => movie['titulo'])
     titles.value = titles.value.filter((item, index) => titles.value.indexOf(item) === index)
+
+    years.value = movies.value.map((movie: Movie) => movie['año'])
+    years.value = years.value.filter((item, index) => years.value.indexOf(item) === index)
   }
 
 
@@ -178,6 +182,7 @@ export const useMoviesStore = defineStore('movies', () => {
     eraseAdvanced,
     eraseGeneral,
     titles,
+    years,
     sortByDate,
     sortByGross,
     sortedBy

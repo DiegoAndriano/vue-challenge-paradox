@@ -27,12 +27,21 @@ function closeModal() {
 }
 
 function closeModalAndSearch() {
+  if(!searchDate.value){
+    searchDate.value = 0;
+  }
+  if(!searchMaxGross.value){
+    searchMaxGross.value = 0;
+  }
+  if(!searchMinGross.value){
+    searchMinGross.value = 0;
+  }
   moviesStore.updateAdvancedSearchTitle(selectedTitle.value.toLowerCase())
   moviesStore.updateAdvancedSearchGenre(selectedGenre.value.toLowerCase())
   moviesStore.updateAdvancedSearchDirector(selectedDirector.value.toLowerCase())
-  moviesStore.updateAdvancedSearchMinGross(searchMinGross.value)
-  moviesStore.updateAdvancedSearchMaxGross(searchMaxGross.value)
-  moviesStore.updateAdvancedSearchDate(searchDate.value)
+  moviesStore.updateAdvancedSearchMinGross(searchMinGross.value ?? 0)
+  moviesStore.updateAdvancedSearchMaxGross(searchMaxGross.value ?? 0)
+  moviesStore.updateAdvancedSearchDate(searchDate.value ?? 0)
   moviesStore.toggleSearchModal()
 }
 
@@ -50,6 +59,7 @@ function eraseTitle() {
   autocompleteTitle.value.erase()
   selectedTitle.value = ''
 }
+
 </script>
 
 <template>
